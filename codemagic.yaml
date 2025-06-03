@@ -30,12 +30,12 @@ workflows:
         #  if [ -z "$GOOGLE_SERVICES_JSON" ]; then
           #  echo "Erro: Variável GOOGLE_SERVICES_JSON não definida na UI do Codemagic."
          #   exit 1
-          fi
+       #   fi
         #  echo $GOOGLE_SERVICES_JSON | base64 --decode > extracted_project/android/app/google-services.json
         #  if [ $? -ne 0 ]; then
          #   echo "Erro ao decodificar GOOGLE_SERVICES_JSON. Verifique se está em Base64."
             exit 1
-          fi
+        #  fi
         #  echo "google-services.json decodificado em extracted_project/android/app/google-services.json"
           
       - name: Get Flutter packages
