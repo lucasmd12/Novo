@@ -1,48 +1,7 @@
 workflows:
   lamafia-Android-Release:
     instance_type: mac_mini_m2
-  #  environment:
-  #    groups:
-    #    - keystore_credentials
-    #  vars:
-        # Variáveis de ambiente necessárias para o Firebase
-        # GOOGLE_SERVICES_JSON: Encrypted(...)
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: main
-          include: true
-    scripts:
-      #- name: Descompactar projeto
-       # script: |
-       #   echo "Descompactando o projeto do arquivo 7z..."
-          # Instalar 7zip se não estiver disponível
-        #  brew install p7zip || true
-          # Descompactar usando 7z
-       #   7z x BACKUP_LAMAFIASUCESSFULL.7z -oextracted_project
-       #   cd extracted_project
-       #   echo "Projeto descompactado com sucesso!"
-          
-     # - name: Decode google-services.json
-       # script: |
-        #  echo "Decodificando google-services.json..."
-        #  if [ -z "$GOOGLE_SERVICES_JSON" ]; then
-          #  echo "Erro: Variável GOOGLE_SERVICES_JSON não definida na UI do Codemagic."
-         #   exit 1
-       #   fi
-        #  echo $GOOGLE_SERVICES_JSON | base64 --decode > extracted_project/android/app/google-services.json
-        #  if [ $? -ne 0 ]; then
-         #   echo "Erro ao decodificar GOOGLE_SERVICES_JSON. Verifique se está em Base64."
-            exit 1
-        #  fi
-        #  echo "google-services.json decodificado em extracted_project/android/app/google-services.json"
-          
-      - name: Get Flutter packages
-        script: |
-          cd extracted_project
-          flutter pub get
-          
+    
       - name: Generate App Icons
         script: |
           cd extracted_project
