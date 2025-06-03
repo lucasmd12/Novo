@@ -18,11 +18,11 @@ workflows:
        # script: |
        #   echo "Descompactando o projeto do arquivo 7z..."
           # Instalar 7zip se não estiver disponível
-          brew install p7zip || true
+        #  brew install p7zip || true
           # Descompactar usando 7z
-          7z x BACKUP_LAMAFIASUCESSFULL.7z -oextracted_project
-          cd extracted_project
-          echo "Projeto descompactado com sucesso!"
+       #   7z x BACKUP_LAMAFIASUCESSFULL.7z -oextracted_project
+       #   cd extracted_project
+       #   echo "Projeto descompactado com sucesso!"
           
      # - name: Decode google-services.json
        # script: |
