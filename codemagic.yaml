@@ -1,23 +1,2 @@
-workflows:
-  lamafia-Android-Release:
-    instance_type: mac_mini_m2
-    
-      - name: Generate App Icons
-        script: |
-          cd extracted_project
-          flutter pub run flutter_launcher_icons
-          
-      - name: Build Android Release APK
-        script: |
-          cd extracted_project
-          flutter build apk --release
-          
-      - name: Build Android App Bundle
-        script: |
-          cd extracted_project
-          flutter build appbundle --release
-          
-    artifacts:
-      - extracted_project/build/app/outputs/flutter-apk/app-release.apk
-      - extracted_project/build/app/outputs/bundle/release/app-release.aab
+
       
