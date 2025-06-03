@@ -1,2 +1,64 @@
 
+# codemagic.yaml
+# Este arquivo define o workflow de build para Android no Codemagic.
+# Adapte conforme necessário (ex: nome do workflow, versão do Flutter, tipo de instância).
+
+workflows:
+  android-build:
+    name: Build Android Debug APK
+    instance_type: linux_x2 # Ou outra instância Linux/macOS conforme sua necessidade
+    max_build_duration: 60 # Tempo máximo em minutos
+    environment:
+      flutter: stable # Ou especifique uma versão exata, ex: 3.32.1
+      java: 17 # Versão do JDK recomendada
+      # Adicione outras variáveis de ambiente se necessário
+      # Ex: ANDROID_SDK_ROOT: /usr/local/share/android-sdk
+
+    scripts:
+      - name: Limpar projeto Flutter
+        script: |
+          echo "== Limpando projeto Flutter =="
+          flutter clean
+
+      - name: Obter dependências Flutter
+        script: |
+          echo "== Obtendo dependências Flutter =="
+          flutter pub get
+
+      - name: Configurar local.properties
+        script: |
+          echo "== Configurando android/local.properties =="
+          # Use a variável de ambiente correta do Codemagic para o SDK do Flutter.
+          # Consulte a documentação do Codemagic para a variável exata (pode ser $CM_FLUTTER_SDK_PATH, $FLUTTER_ROOT ou um caminho fixo).
+          # Exemplo usando $FLUTTER_ROOT (verifique se esta é a correta para sua instância):
+          echo "flutter.sdk=$FLUTTER_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+          echo "Arquivo local.properties criado:"
+          cat "$CM_BUILD_DIR/android/local.properties"
+
+      - name: Gerar ícones do aplicativo
+        script: |
+          echo "== Gerando ícones do aplicativo =="
+          flutter pub run flutter_launcher_icons:main
+
+      - name: Construir APK Debug
+        script: |
+          echo "== Construindo APK Debug =="
+          # O erro anterior sobre repositórios (Google) no build.gradle pode precisar
+          # ser corrigido diretamente nos arquivos android/build.gradle e android/settings.gradle
+          # movendo a declaração do repositório para settings.gradle.
+          # Este workflow tenta garantir um ambiente limpo, mas a correção no Gradle é fundamental.
+          flutter build apk --debug --verbose
+
+    artifacts:
+      - build/app/outputs/flutter-apk/app-debug.apk
+
+  #  publishing:
+      # Adicione aqui configurações de publicação, se necessário
+      # Exemplo: notificação por email
+     # email:
+       # recipients:
+      #    - seu_email@exemplo.com # Substitua pelo seu email
+       # notify:
+        #  success: true
+        #  failure: true
       
