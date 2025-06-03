@@ -13,7 +13,7 @@ workflows:
       branch_patterns:
         - pattern: main
           include: true
-   # scripts:
+    scripts:
       #- name: Descompactar projeto
        # script: |
        #   echo "Descompactando o projeto do arquivo 7z..."
