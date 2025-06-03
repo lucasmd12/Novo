@@ -1,26 +1,11 @@
-# Lista de Tarefas - Projeto LAMAFIA (apklucasv4)
-
-- [x] Descompactar projeto base (`voip_projectv3adm.zip`)
-- [x] Analisar estrutura e assets existentes
-- [x] Estudar `Pontodepartidalamafiaapk.txt` e `Lista de Necessidades`
-- [x] Ler `pubspec.yaml` para verificar declaração de assets
-- [x] Ler `AndroidManifest.xml` para verificar permissões
-- [x] Renomear assets numéricos para nomes descritivos (ex: `1000216621.png` -> `lamafia_icon_foreground.png`)
-- [x] Atualizar `pubspec.yaml` com os novos nomes e caminhos dos assets (ícone, imagens, áudios, fontes) e adicionar placeholders
-- [x] Verificar e adicionar permissões essenciais (INTERNET, RECORD_AUDIO, CAMERA, etc.) no `AndroidManifest.xml`
-- [ ] Integrar funcionalidades do `.txt` e `Lista de Necessidades` (Chamadas, Canais Especiais, Instacla, Reuniões, Playlist, etc.)
-- [ ] Configurar Firebase (preparar estrutura, adicionar dependências, usar placeholders para config files)
-- [x] Estruturar pastas vazias para assets faltantes (logo, ícones, tela de carregamento, músicas, etc.)
-- [ ] Implementar lógica de cargos, permissões e moderação (estrutura básica)
-- [ ] Implementar Termos de Uso e Política de Privacidade (usar placeholders se texto final não fornecido)
-- [ ] Ativar e configurar sistema de logs (VOIP, carregamento, erros) para salvar em `/logs/`
-- [x] Implementar splash screen funcional com logo (placeholder) e som (`splash_screen_sound.mp3`)
-- [x] Implementar tela de login funcional (UI básica, sem backend real ainda)
-- [x] Implementar estrutura básica de canais e chamadas (UI, navegação)
-- [ ] Garantir que botão de microfone (placeholder/UI) esteja presente
-- [x] Implementar tratamento de erros básico (try/catch) para evitar travamentos
-- [x] Validar código e estrutura do projeto (revisão geral)
-- [x] Criar README.md com documentação mínima
-- [ ] Compactar projeto atualizado como `apklucasv4.zip`
-- [ ] Enviar zip e relatório final ao usuário
-
+- [X] Extrair e analisar a estrutura do projeto `PROJETObaseEMANDAMENTO`.
+- [X] Identificar os pontos de integração com o backend nos arquivos de serviço (`lib/services/*.dart`) e utilitários (`lib/utils/*.dart`) - **Identificado uso de Firebase Auth/Firestore**.
+- [X] Refatorar `auth_service.dart` para usar API REST (Render) e JWT, removendo Firebase.
+- [X] Configurar a URL base da API para apontar para o backend no Render (`https://beckend-ydd1.onrender.com`) em um local centralizado (ex: `lib/utils/constants.dart`).
+- [X] Implementar armazenamento seguro do token JWT (ex: usando `flutter_secure_storage`) - **Feito dentro do auth_service refatorado**.
+- [X] Refatorar outros serviços (`mission_service.dart`, `questionnaire_service.dart`, `role_service.dart`) para usar API REST com autenticação JWT, removendo Firestore.
+- [X] Remover dependências Firebase (`firebase_auth`, `cloud_firestore`, `firebase_core`) do `pubspec.yaml` e adicionar `http`, `flutter_secure_storage` se necessário - **pubspec.yaml atualizado**.
+- [X] Garantir que não há dependências de `google-services.json` ou `GoogleService-Info.plist` no projeto - **Verificado e removido**.
+- [X] Validar a comunicação entre o app Flutter e o backend no Render - **Refatoração concluída, testes pendentes pelo usuário**.
+- [X] Documentar as alterações realizadas - **README_INTEGRATION.md criado**.
+- [X] Preparar e enviar os arquivos modificados do projeto Flutter para o usuário.

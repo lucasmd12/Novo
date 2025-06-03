@@ -11,14 +11,13 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6 # Specify a version for better stability
 
-  # Firebase (Dependências essenciais)
-  firebase_core: ^2.27.1
-  firebase_auth: ^4.17.9
-  cloud_firestore: ^4.15.9
+  # Backend Communication (HTTP) & Secure Storage
+  http: ^1.2.1 # For making HTTP requests to the Render backend
+  flutter_secure_storage: ^9.2.2 # For securely storing JWT tokens
 
   # Estado e armazenamento
   provider: ^6.1.2
-  shared_preferences: ^2.2.3
+  shared_preferences: ^2.2.3 # Keep for non-sensitive preferences if needed
 
   # UI e formatação
   intl: ^0.19.0 # Necessário para formatação
@@ -27,7 +26,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
+  flutter_lints: ^3.0.1 # Keep lints, ensure compatibility with Dart SDK used
   flutter_launcher_icons: ^0.13.1 # Para gerar ícones do app
 
 flutter_icons:
@@ -59,3 +58,4 @@ flutter:
     - family: Digital
       fonts:
         - asset: assets/fonts/digital.ttf
+
