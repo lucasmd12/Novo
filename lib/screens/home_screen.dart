@@ -122,6 +122,13 @@ class _HomeScreenState extends State<HomeScreen> {
     final currentUser = authProvider.currentUser;
     final textTheme = Theme.of(context).textTheme;
 
+    // ADICIONANDO LOG AQUI
+    if (currentUser != null) {
+      Logger.info("HomeScreen build: currentUser object: ${currentUser.toString()}");
+    } else {
+       Logger.warning("HomeScreen build: currentUser is null.");
+    }
+    // FIM DO LOG
     // CORREÇÃO: Verificar status do AuthProvider, não UserProvider
     if (authProvider.authStatus == AuthStatus.unknown) {
       // Ainda verificando o estado de autenticação

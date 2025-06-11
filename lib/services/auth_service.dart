@@ -61,6 +61,8 @@ class AuthService extends ChangeNotifier {
     try {
       // Assume profile endpoint returns user data upon success
       final response = await _apiService.get("/api/auth/profile", requireAuth: true);
+      // ADICIONANDO LOG AQUI
+      Logger.info("AuthService: fetchUserProfile received response: $response");
       if (response != null && response is Map<String, dynamic>) {
         _currentUser = UserModel.fromJson(response);
         Logger.info("User profile fetched successfully: ${_currentUser?.username}");
@@ -94,6 +96,9 @@ class AuthService extends ChangeNotifier {
         requireAuth: false,
       );
 
+      // ADICIONANDO LOG AQUI
+      Logger.info("AuthService: login received response: $response");
+      // FIM DO LOG
       if (response != null && response is Map<String, dynamic> && response.containsKey("token")) {
         final newToken = response["token"] as String?;
         if (newToken != null) {
@@ -142,6 +147,9 @@ class AuthService extends ChangeNotifier {
         requireAuth: false,
       );
 
+      // ADICIONANDO LOG AQUI
+      Logger.info("AuthService: register received response: $response");
+      // FIM DO LOG
       // *** CORRECTION: Check for successful status code (200-299) ***
       // Instead of requiring a token, check if the request was successful.
       // We assume a successful registration means the user can now log in.

@@ -24,6 +24,7 @@ class AuthProvider with ChangeNotifier {
   void _authListener() {
     Logger.info('AuthProvider received notification from AuthService.');
     _updateAuthStatus();
+    Logger.info('AuthProvider: _authListener - currentUser object: ${currentUser.toString()}');
   }
 
   void _updateAuthStatus() {
