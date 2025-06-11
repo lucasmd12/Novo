@@ -1,0 +1,73 @@
+name: lucasbeatsfederacao
+description: 'Aplicativo FEDERACAOMAD: Comunicação e organização.'
+publish_to: 'none' # Prevent accidental publishing to pub.dev
+version: 2.0.1+3 # Build incremented after further corrections
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Firebase
+  firebase_core: ^2.32.0 # Adicionado para integração Firebase
+
+  # Backend Communication (Node.js + Socket.IO)
+  http: ^1.2.1
+  socket_io_client: ^3.1.2
+
+  # Estado e armazenamento
+  provider: ^6.1.2
+  shared_preferences: ^2.5.3
+  connectivity_plus: ^6.1.4
+
+  # UI e formatação
+  intl: ^0.20.2
+  flutter_svg: ^2.0.10+1
+
+  # Funcionalidades Adicionadas
+  image_picker: ^1.1.2
+  permission_handler: ^12.0.0+1
+  flutter_secure_storage: ^9.2.2
+
+  # WebRTC
+  flutter_webrtc: ^0.14.1
+  uuid: ^4.4.0
+
+  # Audio Playback
+  audioplayers: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images_png/app_logo.png"
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/images_png/app_logo.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images_png/
+    - assets/images_png/backgrounds/
+    - assets/images_png/clan_images/
+    - assets/audio/
+    - assets/fonts/
+    # - assets/images_svg/
+    # - assets/images_placeholders/
+
+  fonts:
+    - family: Gothic
+      fonts:
+        - asset: assets/fonts/gothic.ttf
+    - family: Digital
+      fonts:
+        - asset: assets/fonts/digital.ttf
